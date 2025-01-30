@@ -13,6 +13,8 @@
     "@types/react-dom": "^19.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "vite": "^6.0.11"
+    "vite": "^6.0.11",
+    "lib-a": "file:./lib-a",
+    "lib-b": "file:./lib-b"
   }
 }

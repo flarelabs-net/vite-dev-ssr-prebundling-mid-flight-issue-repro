@@ -1,0 +1,10 @@
+{
+  "name": "lib-b",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    }
+  }
+}

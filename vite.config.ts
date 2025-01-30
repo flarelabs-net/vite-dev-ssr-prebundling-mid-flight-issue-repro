@@ -9,7 +9,7 @@ import {
 export default defineConfig({
   clearScreen: false,
   appType: "custom",
-  plugins: [vitePluginSsrMiddleware({ entry: "/src/entry-server" })],
+  plugins: [vitePluginSsrMiddleware({ entry: "/src/index" })],
   resolve: {
     noExternal: true,
   },
@@ -17,7 +17,9 @@ export default defineConfig({
     ssr: {
       optimizeDeps: {
         noDiscovery: false,
-        entries: ["/src/entry-server"],
+        entries: [
+          // no entries, just optimize deps as you encounter them
+        ],
       },
     },
   },
