@@ -37,6 +37,12 @@ afterwords does not trigger the error (since this only happens then dependencies
 
 ## Additional information
 
+### React
+
+The minimal reproduction presented here might make it look like this is not a realistic issue to run into, but
+I think that it might actually be pretty common. The [ssr-react variant](https://github.com/flarelabs-net/vite-dev-ssr-prebundling-mid-flight-issue-repro/tree/ssr-react) produces this issue just by using `react-server/dom`
+in a very common and basic way
+
 ### Virtual Modules
 
 In the reproduction this error is triggered by not providing any entrypoints in `optimizeDeps.entries`, meaning that there is no initial crawling and dependencies are optimized as they are encountered.
