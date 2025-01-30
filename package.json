@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "predev": "rm -rf node_modules/.vite",
-    "dev": "vite dev",
-    "vite-dev": "vite dev"
+    "dev": "vite dev"
   },
   "devDependencies": {
     "vite": "^6.0.11",
