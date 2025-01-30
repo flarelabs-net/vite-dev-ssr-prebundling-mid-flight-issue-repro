@@ -9,7 +9,28 @@ import {
 export default defineConfig({
   clearScreen: false,
   appType: "custom",
-  plugins: [vitePluginSsrMiddleware({ entry: "/src/index" })],
+  plugins: [
+    vitePluginSsrMiddleware({ entry: "/src/index" }),
+    {
+      name: "html-virtual-module",
+      resolveId(id) {
+        if (id === "virtual:html") {
+          return "\0virtual:html";
+        }
+      },
+      load(id) {
+        if (id === "\0virtual:html") {
+          return `
+            import { msg } from 'lib-b';
+
+            export const getHtml = () => {
+                return \`<h1>\${msg}</h1>\`;
+            };
+          `;
+        }
+      },
+    },
+  ],
   resolve: {
     noExternal: true,
   },
@@ -17,9 +38,7 @@ export default defineConfig({
     ssr: {
       optimizeDeps: {
         noDiscovery: false,
-        entries: [
-          // no entries, just optimize deps as you encounter them
-        ],
+        entries: ["./src/index.js"],
       },
     },
   },
