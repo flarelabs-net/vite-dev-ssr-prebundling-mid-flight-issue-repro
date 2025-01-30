@@ -33,7 +33,7 @@ running
 pnpm vite dev
 ```
 
-afterwords does not trigger the error (since this only happens then dependencies are getting optimized)
+afterwords does not trigger the error (since this only happens then dependencies are getting optimized).
 
 ## Additional information
 
@@ -41,13 +41,13 @@ afterwords does not trigger the error (since this only happens then dependencies
 
 The minimal reproduction presented here might make it look like this is not a realistic issue to run into, but
 I think that it might actually be pretty common. The [ssr-react variant](https://github.com/flarelabs-net/vite-dev-ssr-prebundling-mid-flight-issue-repro/tree/ssr-react) produces this issue just by using `react-server/dom`
-in a very common and basic way
+in a very common and basic way.
 
 ### Virtual Modules
 
 In the reproduction this error is triggered by not providing any entrypoints in `optimizeDeps.entries`, meaning that there is no initial crawling and dependencies are optimized as they are encountered.
 
-The issue can however be triggered even when there is an initial crawling process, simply by using virtual modules since those are not part of the initial crawling process.
+The issue can however be triggered even when there is an initial crawling process, simply by using virtual modules since those are not part of the initial crawling process, you can see an example of this in the [virtual-modules variant](https://github.com/flarelabs-net/vite-dev-ssr-prebundling-mid-flight-issue-repro/tree/virtual-modules).
 
 > [!Note]
 > This is actually the main issue here since many fullstack frameworks
